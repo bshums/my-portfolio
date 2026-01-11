@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan Shumway - Product Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        /* Section Styles */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Current Work */
+        .current-work {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .work-highlights {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .highlight-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-card p {
+            color: #666;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .timeline-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .role {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            color: #555;
+        }
+
+        .skill-category li::before {
+            content: "▪";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Contact */
+        .contact-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #5568d3;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item::before {
+                left: -1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#current">Current Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="headshot.jpg" alt="Bryan Shumway" class="hero-image">
+            <div class="hero-text">
+                <h1>Bryan Shumway</h1>
+                <h2>Senior Product Manager - Trading Intelligence</h2>
+                <p>Building intelligent systems that optimize decision-making at scale for DraftKings Sportsbook</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>I'm a product manager who specializes in building data-driven systems that turn complex operational challenges into scalable optimization opportunities.</p>
+            
+            <p>My career has taken me from hardware and consumer goods to digital consulting, sports data, and now to one of the largest consumer-facing companies in sports betting. Along the way, I've developed a unique perspective on how to build products that bridge business strategy, technical systems, and real-time decision-making.</p>
+            
+            <p>Today at DraftKings, I lead Trading Intelligence products that help the sportsbook make better decisions faster—optimizing pricing, margin application, risk allocation, and operational efficiency across thousands of markets and millions of bets.</p>
+        </div>
+    </section>
+
+    <section id="current">
+        <h2>Current Work at DraftKings</h2>
+        <div class="current-work">
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">As Senior Product Manager for Trading Intelligence, I build products that systematize optimization decisions to improve unit economics at scale.</p>
+            
+            <div class="work-highlights">
+                <div class="highlight-card">
+                    <h3>Pricing & Margin Optimization</h3>
+                    <p>Developing systems that dynamically adjust pricing and margin strategies based on market conditions, customer behavior, and competitive positioning to maximize profitability without unnecessary volume loss.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>Risk Allocation & Decision Routing</h3>
+                    <p>Building intelligent systems that determine when to accept more action versus being conservative, and when manual review adds value—optimizing the balance between growth and risk management.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>Customer & Bet-Quality Intelligence</h3>
+                    <p>Creating data products that enable more consistent and economically rational decisions by understanding customer patterns and bet quality signals.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>Experimentation & Iteration</h3>
+                    <p>Designing feedback loops to quantify trade-offs between margin and volume, risk and growth, enabling continuous strategy refinement backed by data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>DraftKings</h3>
+                <div class="role">Senior Product Manager - Trading Intelligence</div>
+                <div class="date">2022 - Present</div>
+                <p>Leading product development for trading intelligence systems that optimize pricing, risk, and margin decisions across the online sportsbook platform.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Stats Perform</h3>
+                <div class="role">Product Manager</div>
+                <div class="date">2020 - 2022</div>
+                <p>Managed B2B sports data products, working with major sports leagues and media companies to deliver real-time data and analytics solutions.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Digital Product Consulting</h3>
+                <div class="role">Product Manager</div>
+                <div class="date">2018 - 2020</div>
+                <p>Led digital product strategy and development for consulting clients across various industries, focusing on data-driven decision-making tools.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Stanley Black & Decker / TTI</h3>
+                <div class="role">Product Manager & Business Analyst</div>
+                <div class="date">2014 - 2018</div>
+                <p>Started as a business analyst and progressed to product management, working on power tools and hardware products for major brands including Craftsman.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Approach</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Product Strategy</h3>
+                <ul>
+                    <li>Data-driven decision frameworks</li>
+                    <li>Optimization systems design</li>
+                    <li>Stakeholder alignment</li>
+                    <li>Business case development</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Technical Fluency</h3>
+                <ul>
+                    <li>Machine learning systems</li>
+                    <li>Real-time data pipelines</li>
+                    <li>API design & integration</li>
+                    <li>Experimentation platforms</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Domain Expertise</h3>
+                <ul>
+                    <li>Trading & risk systems</li>
+                    <li>Pricing optimization</li>
+                    <li>Sports betting operations</li>
+                    <li>B2B & B2C products</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Leadership</h3>
+                <ul>
+                    <li>Cross-functional collaboration</li>
+                    <li>Technical roadmap planning</li>
+                    <li>Metrics & KPI frameworks</li>
+                    <li>Agile methodologies</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 2rem;">Interested in connecting? Reach out via LinkedIn or email.</p>
+            <p style="color: #999; font-style: italic; margin-bottom: 2rem;">(Fair warning: I'm not always great at responding quickly, but I do my best!)</p>
+            <div class="contact-links">
+                <a href="https://linkedin.com/in/bshums" class="contact-btn" target="_blank">LinkedIn</a>
+                <a href="mailto:bryan.shumway@me.com" class="contact-btn">Email</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Bryan Shumway. Built with HTML & CSS.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
