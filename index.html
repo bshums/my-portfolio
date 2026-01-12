@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryan Shumway | Senior Product Manager</title>
+    <meta name="description" content="Senior Product Manager specializing in Trading Intelligence, AI/ML products, and B2B platforms. Building products that systematize optimization decisions to improve unit economics at scale.">
+    <meta name="author" content="Bryan Shumway">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Bryan Shumway | Senior Product Manager">
+    <meta property="og:description" content="Building products that systematize optimization decisions to improve unit economics at scale.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="headshot.jpg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Bryan Shumway",
+        "jobTitle": "Senior Product Manager",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "DraftKings"
+        },
+        "url": "https://www.bryanshumway.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/bryanshumway"
+        ]
+    }
+    </script>
+
+    <style>
+        .text-balance { text-wrap: balance; }
+        .text-pretty { text-wrap: pretty; }
+    </style>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans antialiased transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700">
+        <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="text-lg font-semibold text-slate-900 dark:text-white">Bryan Shumway</a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
+                <a href="#experience" class="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Experience</a>
+                <a href="#projects" class="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
+                <button id="theme-toggle" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                    <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-feather="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="flex items-center gap-4 md:hidden">
+                <button id="theme-toggle-mobile" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+                    <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
+                    <i data-feather="moon" class="w-5 h-5 block dark:hidden"></i>
+                </button>
+                <button id="mobile-menu-btn" class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Open menu">
+                    <i data-feather="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+            <div class="px-6 py-4 flex flex-col gap-4">
+                <a href="#about" class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
+                <a href="#experience" class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Experience</a>
+                <a href="#projects" class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="min-h-dvh flex items-center pt-16">
+            <div class="max-w-5xl mx-auto px-6 py-20 md:py-32">
+                <div class="grid md:grid-cols-3 gap-12 items-center">
+                    <div class="md:col-span-2 order-2 md:order-1">
+                        <p class="text-blue-600 dark:text-blue-400 font-medium mb-4">Senior Product Manager</p>
+                        <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 text-balance">Bryan Shumway</h1>
+                        <p class="text-xl text-slate-600 dark:text-slate-400 mb-8 text-pretty max-w-xl">
+                            Building products that systematize optimization decisions to improve unit economics at scale.
+                        </p>
+                        <a href="#projects" class="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-700 dark:hover:bg-slate-200 transition-colors">
+                            View My Work
+                            <i data-feather="arrow-down" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <div class="order-1 md:order-2 flex justify-center md:justify-end">
+                        <img src="headshot.jpg" alt="Bryan Shumway" class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="py-20 md:py-32 bg-slate-50 dark:bg-slate-800/50">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8 text-balance">About Me</h2>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="md:col-span-2">
+                        <p class="text-lg text-slate-600 dark:text-slate-400 mb-6 text-pretty">
+                            I'm a product manager with a decade of experience building B2B and B2B2C products across sports technology, e-commerce, and consumer brands. I specialize in turning complex technical capabilities into products that drive measurable business outcomes.
+                        </p>
+                        <p class="text-lg text-slate-600 dark:text-slate-400 mb-6 text-pretty">
+                            Currently at DraftKings, I lead Trading Intelligence products that optimize pricing, risk allocation, and decision-making at scale. Previously, I built AI-powered content products at Stats Perform that generated millions in new revenue.
+                        </p>
+                        <p class="text-lg text-slate-600 dark:text-slate-400 text-pretty">
+                            I bring a balanced approach: strategic vision paired with execution rigor, technical depth with business acumen.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wide mb-4">Tools & Skills</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300 shadow-sm">Product Strategy</span>
+                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300 shadow-sm">AI/ML Products</span>
+                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300 shadow-sm">B2B Platforms</span>
+                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300 shadow-sm">Data Products</span>
+                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300 shadow-sm">APIs</span>
+                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300 shadow-sm">Figma</span>
+                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300 shadow-sm">JIRA</span>
+                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300 shadow-sm">SQL</span>
+                            <span class="px-3 py-1 bg-white dark:bg-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300 shadow-sm">Agile/Scrum</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="py-20 md:py-32">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-balance">Experience</h2>
+
+                <div class="space-y-12">
+                    <!-- DraftKings -->
+                    <div class="relative pl-8 border-l-2 border-blue-600 dark:border-blue-400">
+                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-blue-600 dark:bg-blue-400"></div>
+                        <div class="mb-1 text-sm text-slate-500 dark:text-slate-500">Apr 2023 - Present</div>
+                        <h3 class="text-xl font-semibold text-slate-900 dark:text-white">Senior Product Manager, Trading Intelligence</h3>
+                        <p class="text-blue-600 dark:text-blue-400 mb-4">DraftKings</p>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                            <li class="flex gap-2"><span class="text-blue-600 dark:text-blue-400">-</span> Developing pricing and margin optimization systems that dynamically adjust strategies based on market conditions and customer behavior</li>
+                            <li class="flex gap-2"><span class="text-blue-600 dark:text-blue-400">-</span> Building risk allocation and decision routing systems to optimize the balance between growth and risk management</li>
+                            <li class="flex gap-2"><span class="text-blue-600 dark:text-blue-400">-</span> Creating customer and bet intelligence products for more consistent, economically rational decisions</li>
+                            <li class="flex gap-2"><span class="text-blue-600 dark:text-blue-400">-</span> Designing experimentation frameworks to quantify margin/volume and risk/growth trade-offs</li>
+                        </ul>
+                    </div>
+
+                    <!-- Stats Perform -->
+                    <div class="relative pl-8 border-l-2 border-slate-300 dark:border-slate-600">
+                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-500"></div>
+                        <div class="mb-1 text-sm text-slate-500 dark:text-slate-500">Mar 2019 - Feb 2023</div>
+                        <h3 class="text-xl font-semibold text-slate-900 dark:text-white">Product Manager → Senior Product Manager</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-4">Stats Perform (Opta)</p>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                            <li class="flex gap-2"><span class="text-slate-400">-</span> Built AI-powered automated video platform: 42,000+ videos annually, $2M revenue in first 6 months</li>
+                            <li class="flex gap-2"><span class="text-slate-400">-</span> Created Betting Insights service generating 1M+ automated insights annually</li>
+                            <li class="flex gap-2"><span class="text-slate-400">-</span> Launched Content Player Pro, reducing integration time by 60%</li>
+                            <li class="flex gap-2"><span class="text-slate-400">-</span> Led B2B API development for ML-driven predictions: $1M+ sales in 6 months</li>
+                            <li class="flex gap-2"><span class="text-slate-400">-</span> Managed $200M/year betting vertical and multi-million dollar licensing deals</li>
+                        </ul>
+                    </div>
+
+                    <!-- Kin + Carta -->
+                    <div class="relative pl-8 border-l-2 border-slate-300 dark:border-slate-600">
+                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-500"></div>
+                        <div class="mb-1 text-sm text-slate-500 dark:text-slate-500">Sep 2017 - Mar 2019</div>
+                        <h3 class="text-xl font-semibold text-slate-900 dark:text-white">Product Consultant</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-4">Kin + Carta (Solstice)</p>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                            <li class="flex gap-2"><span class="text-slate-400">-</span> Led B2B e-commerce application development for major foodservice distributor</li>
+                            <li class="flex gap-2"><span class="text-slate-400">-</span> Implemented enterprise Elasticsearch search engine</li>
+                            <li class="flex gap-2"><span class="text-slate-400">-</span> Defined roadmaps and managed backlogs using Agile/Scrum methodology</li>
+                        </ul>
+                    </div>
+
+                    <!-- Sears -->
+                    <div class="relative pl-8 border-l-2 border-slate-300 dark:border-slate-600">
+                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-500"></div>
+                        <div class="mb-1 text-sm text-slate-500 dark:text-slate-500">Aug 2014 - Sep 2017</div>
+                        <h3 class="text-xl font-semibold text-slate-900 dark:text-white">Business Analyst → Associate PM → Product Manager</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-4">Sears Holdings Corporation</p>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                            <li class="flex gap-2"><span class="text-slate-400">-</span> Managed $200M Craftsman product portfolios</li>
+                            <li class="flex gap-2"><span class="text-slate-400">-</span> Developed DieHard brand three-year reinvigoration strategy</li>
+                            <li class="flex gap-2"><span class="text-slate-400">-</span> Negotiated technology licensing and vendor partnerships</li>
+                        </ul>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="relative pl-8 border-l-2 border-slate-300 dark:border-slate-600">
+                        <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-500"></div>
+                        <h3 class="text-xl font-semibold text-slate-900 dark:text-white">B.S. Business Management</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-2">Brigham Young University - Marriott School of Management</p>
+                        <p class="text-slate-600 dark:text-slate-400">Minors in Communications and Psychology</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="py-20 md:py-32 bg-slate-50 dark:bg-slate-800/50">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4 text-balance">Projects</h2>
+                <p class="text-slate-600 dark:text-slate-400 mb-12 max-w-2xl">Select work demonstrating zero-to-one product development, AI/ML integration, and measurable business impact.</p>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Project 1 -->
+                    <article class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                                <i data-feather="video" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <span class="text-xs font-medium px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">$2M Revenue</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Automated Sports Video</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-pretty">
+                            Built an AI-powered platform generating 42,000+ automated sports videos annually for media and sportsbook operators, covering US, European, and global leagues.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">AI/ML</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">B2B</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">Content</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                                <i data-feather="zap" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <span class="text-xs font-medium px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">1M+ Insights/Year</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Automated Betting Insights</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-pretty">
+                            Created a service delivering millions of automatically generated facts and insights to media, broadcast, and sportsbook clients via API and consumer products.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">Data</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">API</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">B2B2C</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                                <i data-feather="package" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <span class="text-xs font-medium px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">60% Faster Integration</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Content Player Pro</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-pretty">
+                            Built a single-integration B2B2C product bundling betting content, live streams, highlights, stats overlays, and insights for sportsbook operators.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">Platform</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">B2B2C</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">Integration</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 4 -->
+                    <article class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                                <i data-feather="cpu" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <span class="text-xs font-medium px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">$1M+ Sales</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">AI/ML Sports Predictions</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-pretty">
+                            Led development of a B2B API providing machine learning-driven predictions and probability distributions across multiple US pro and college sports.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">ML</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">API</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">B2B</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 5 -->
+                    <article class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                                <i data-feather="target" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <span class="text-xs font-medium px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full">Bet Volume Lift</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Same-Game-Multi Assistant</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-pretty">
+                            Delivered a B2B2C product helping sports bettors discover additional betting opportunities, driving increased bet placement and margin for operators.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">Consumer</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">B2B2C</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">Sports</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 6 -->
+                    <article class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                                <i data-feather="search" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <span class="text-xs font-medium px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full">Enterprise</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">E-Commerce Search Engine</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 text-pretty">
+                            Led cross-functional team developing an Elasticsearch-powered search engine for a large foodservice distribution company's B2B e-commerce platform.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">Search</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">E-Commerce</span>
+                            <span class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded">B2B</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="py-20 md:py-32">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4 text-balance">Let's Connect</h2>
+                <p class="text-slate-600 dark:text-slate-400 mb-8 max-w-md mx-auto">
+                    Interested in discussing product strategy, trading systems, or new opportunities? I'd love to hear from you.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <a href="mailto:bryan@bryanshumway.com" class="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-700 dark:hover:bg-slate-200 transition-colors">
+                        <i data-feather="mail" class="w-5 h-5"></i>
+                        Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryanshumway" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-lg font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                        <i data-feather="linkedin" class="w-5 h-5"></i>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-200 dark:border-slate-700">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-sm text-slate-500 dark:text-slate-500">&copy; 2025 Bryan Shumway. All rights reserved.</p>
+            <div class="flex items-center gap-4">
+                <a href="https://www.linkedin.com/in/bryanshumway" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors" aria-label="LinkedIn">
+                    <i data-feather="linkedin" class="w-5 h-5"></i>
+                </a>
+                <a href="mailto:bryan@bryanshumway.com" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors" aria-label="Email">
+                    <i data-feather="mail" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Dark mode handling
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+
+        // Check for saved preference or system preference
+        function getThemePreference() {
+            const saved = localStorage.getItem('theme');
+            if (saved) return saved;
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        // Apply theme
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        // Initialize
+        applyTheme(getThemePreference());
+
+        // Toggle function
+        function toggleTheme() {
+            const current = html.classList.contains('dark') ? 'dark' : 'light';
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+            feather.replace(); // Re-render icons after DOM changes
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+
+        // Listen for system preference changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Close mobile menu on scroll
+        window.addEventListener('scroll', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
