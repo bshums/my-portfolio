@@ -4,275 +4,555 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bryan Shumway — Product Manager</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066FF;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+            --border: #e0e0e0;
+            --bg: white;
+            --card-bg: white;
+        }
+
         @media (prefers-color-scheme: dark) {
             :root {
-                color-scheme: dark;
+                --primary: #4d9fff;
+                --dark: #ffffff;
+                --gray: #b0b0b0;
+                --light-gray: #1e1e1e;
+                --border: #333;
+                --bg: #0a0a0a;
+                --card-bg: #141414;
             }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--bg);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1.5rem 0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav {
+                background: rgba(10, 10, 10, 0.95);
+            }
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gray);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 6rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero .bio {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray);
+            max-width: 700px;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border: 4px solid var(--border);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section.alt {
+            background: var(--light-gray);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Current Work Section */
+        .current-work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .alt .work-card {
+            background: var(--card-bg);
+        }
+
+        .work-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .work-card h3 {
+            color: var(--dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .work-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Work Samples Section */
+        .work-samples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .work-sample {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .work-sample:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+
+        .portfolio-meta {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .work-sample h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .work-sample p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .portfolio-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .timeline-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .timeline-item p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 1rem 2rem;
+            background: var(--dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+
+        .contact-btn:hover {
+            background: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--gray);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--gray);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 8rem 1.5rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .portfolio-item {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .portfolio-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
-<body class="bg-white dark:bg-zinc-950 text-zinc-950 dark:text-zinc-50">
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="text-lg font-semibold">Bryan Shumway</a>
-            
-            <!-- Mobile menu button -->
-            <button id="menu-toggle" class="md:hidden p-2" aria-label="Toggle menu">
-                <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-            
-            <!-- Desktop nav -->
-            <ul class="hidden md:flex gap-8 text-sm">
-                <li><a href="#work" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors">Work</a></li>
-                <li><a href="#portfolio" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors">Portfolio</a></li>
-                <li><a href="#experience" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors">Experience</a></li>
-                <li><a href="#contact" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 transition-colors">Contact</a></li>
-            </ul>
-        </div>
-        
-        <!-- Mobile nav -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-200 dark:border-zinc-800">
-            <ul class="px-6 py-4 space-y-4">
-                <li><a href="#work" class="block text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50">Work</a></li>
-                <li><a href="#portfolio" class="block text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50">Portfolio</a></li>
-                <li><a href="#experience" class="block text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50">Experience</a></li>
-                <li><a href="#contact" class="block text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50">Contact</a></li>
+<body>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">BS</a>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="max-w-3xl mx-auto px-6 py-24 md:py-32">
-        <img src="headshot.jpg" alt="Bryan Shumway" class="size-32 rounded-full mb-8 ring-1 ring-zinc-200 dark:ring-zinc-800">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-balance">Bryan Shumway</h1>
-        <p class="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 mb-6">Senior Product Manager at DraftKings</p>
-        <p class="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty max-w-2xl">
-            I build intelligent systems that turn complex operational challenges into scalable optimization opportunities. Currently leading Trading Intelligence products at DraftKings, where I help the sportsbook make better decisions faster—optimizing pricing, risk allocation, and operational efficiency across millions of bets.
+    <section class="hero">
+        <img src="headshot.jpg" alt="Bryan Shumway" class="hero-image">
+        <h1>Bryan Shumway</h1>
+        <div class="subtitle">Senior Product Manager — DraftKings</div>
+        <p class="bio">I build intelligent systems that turn complex operational challenges into scalable optimization opportunities. Currently leading Trading Intelligence products at DraftKings, where I help the sportsbook make better decisions faster—optimizing pricing, risk allocation, and operational efficiency across millions of bets.</p>
+    </section>
+
+    <section id="work" class="alt">
+        <h2>Current Work</h2>
+        <p style="font-size: 1.1rem; color: var(--gray); max-width: 800px; margin-bottom: 2rem;">
+            As Senior Product Manager for Trading Intelligence at DraftKings, I build products that systematize optimization decisions to improve unit economics at scale.
         </p>
-    </section>
-
-    <!-- Current Work -->
-    <section id="work" class="bg-zinc-50 dark:bg-zinc-900 py-24">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-balance">Current Work</h2>
-            <p class="text-lg text-zinc-600 dark:text-zinc-400 mb-12 max-w-3xl text-pretty">
-                As Senior Product Manager for Trading Intelligence at DraftKings, I build products that systematize optimization decisions to improve unit economics at scale.
-            </p>
+        
+        <div class="current-work-grid">
+            <div class="work-card">
+                <h3>Pricing & Margin Optimization</h3>
+                <p>Developing systems that dynamically adjust pricing and margin strategies based on market conditions, customer behavior, and competitive positioning to maximize profitability without unnecessary volume loss.</p>
+            </div>
             
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white dark:bg-zinc-950 p-6 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                    <h3 class="text-xl font-semibold mb-3">Pricing & Margin Optimization</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400 text-pretty">
-                        Developing systems that dynamically adjust pricing and margin strategies based on market conditions, customer behavior, and competitive positioning to maximize profitability without unnecessary volume loss.
-                    </p>
-                </div>
-                
-                <div class="bg-white dark:bg-zinc-950 p-6 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                    <h3 class="text-xl font-semibold mb-3">Risk Allocation & Decision Routing</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400 text-pretty">
-                        Building intelligent systems that determine when to accept more action versus being conservative, and when manual review adds value—optimizing the balance between growth and risk management.
-                    </p>
-                </div>
-                
-                <div class="bg-white dark:bg-zinc-950 p-6 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                    <h3 class="text-xl font-semibold mb-3">Customer & Bet Intelligence</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400 text-pretty">
-                        Creating data products that enable more consistent and economically rational decisions by understanding customer patterns and bet quality signals.
-                    </p>
-                </div>
-                
-                <div class="bg-white dark:bg-zinc-950 p-6 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                    <h3 class="text-xl font-semibold mb-3">Experimentation & Iteration</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400 text-pretty">
-                        Designing feedback loops to quantify trade-offs between margin and volume, risk and growth, enabling continuous strategy refinement backed by data.
-                    </p>
-                </div>
+            <div class="work-card">
+                <h3>Risk Allocation & Decision Routing</h3>
+                <p>Building intelligent systems that determine when to accept more action versus being conservative, and when manual review adds value—optimizing the balance between growth and risk management.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Selected Work -->
-    <section id="portfolio" class="py-24">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-balance">Selected Work</h2>
             
-            <div class="space-y-8">
-                <article class="border-b border-zinc-200 dark:border-zinc-800 pb-8">
-                    <div class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2 tabular-nums">Stats Perform • 2021–2023</div>
-                    <h3 class="text-2xl font-semibold mb-3">Automated Sports Video</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-pretty">
-                        Led development of an AI-powered automated video solution producing 42,000+ videos annually. Generated $2M in revenue within 6 months of launch for clients across Media and Sports Betting verticals. Built the product from zero to scale, working with ML teams to create a system that automatically generates highlight reels and content for major sports properties.
-                    </p>
-                    <a href="https://www.bryanshumway.com/automated-sports-video" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium">
-                        View case study
-                        <svg class="size-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </article>
-
-                <article class="border-b border-zinc-200 dark:border-zinc-800 pb-8">
-                    <div class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2 tabular-nums">Stats Perform • 2021–2023</div>
-                    <h3 class="text-2xl font-semibold mb-3">Content Player Pro</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-pretty">
-                        Created a new B2B2C web and mobile product for Sportsbook clients, decreasing time to integration by 60% and enabling upsell opportunities for new innovations. This platform became the foundation for delivering Stats Perform's data experiences to millions of end users through sportsbook applications.
-                    </p>
-                    <a href="https://www.bryanshumway.com/content-player-pro" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium">
-                        View case study
-                        <svg class="size-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </article>
-
-                <article class="border-b border-zinc-200 dark:border-zinc-800 pb-8">
-                    <div class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2 tabular-nums">Stats Perform • 2021–2023</div>
-                    <h3 class="text-2xl font-semibold mb-3">Automated Betting Insights</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-pretty">
-                        Created a new service delivering 1M+ automatically generated insights annually, driving engagement and personalization opportunities across B2B Media, Tech, and Sportsbooks. Used machine learning and natural language generation to create contextual, timely insights that helped users make informed betting decisions.
-                    </p>
-                    <a href="https://www.bryanshumway.com/automated-betting-insights" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium">
-                        View case study
-                        <svg class="size-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </article>
-
-                <article class="border-b border-zinc-200 dark:border-zinc-800 pb-8">
-                    <div class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2 tabular-nums">Stats Perform • 2019–2021</div>
-                    <h3 class="text-2xl font-semibold mb-3">AI/ML Predictions API</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-pretty">
-                        Led development of a B2B API service generating $1M+ in sales within 6 months of launch. Provided machine learning-driven sports predictions and probability distributions to sportsbook operators. Established ML Ops infrastructure and integrated machine learning models into multiple products.
-                    </p>
-                    <a href="https://www.bryanshumway.com/ai-ml-in-sports" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium">
-                        View case study
-                        <svg class="size-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </article>
-
-                <article class="pb-8">
-                    <div class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2 tabular-nums">Stats Perform • 2021–2023</div>
-                    <h3 class="text-2xl font-semibold mb-3">Same-Game-Multi Assistant</h3>
-                    <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-pretty">
-                        Ideated and delivered an industry-first B2B2C product driving increased bet placement and higher margins for sportsbooks. Created an intelligent assistant that helped users build correlated parlays with real-time odds and probability calculations.
-                    </p>
-                    <a href="https://www.bryanshumway.com/samegamemulti-assistant" target="_blank" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium">
-                        View case study
-                        <svg class="size-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </article>
+            <div class="work-card">
+                <h3>Customer & Bet Intelligence</h3>
+                <p>Creating data products that enable more consistent and economically rational decisions by understanding customer patterns and bet quality signals.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="bg-zinc-50 dark:bg-zinc-900 py-24">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-balance">Experience</h2>
             
-            <div class="space-y-12">
-                <article>
-                    <div class="flex flex-wrap justify-between items-baseline gap-2 mb-2">
-                        <h3 class="text-2xl font-semibold">DraftKings</h3>
-                        <time class="text-sm text-zinc-600 dark:text-zinc-400 tabular-nums">April 2023 – Present</time>
-                    </div>
-                    <div class="text-blue-600 dark:text-blue-400 font-medium mb-3">Senior Product Manager — Trading Intelligence</div>
-                    <p class="text-zinc-600 dark:text-zinc-400 text-pretty">
-                        Leading product development for trading intelligence systems that optimize pricing, risk, and margin decisions across the online sportsbook platform. Building data-driven products that help the sportsbook make better decisions at scale.
-                    </p>
-                </article>
-
-                <article>
-                    <div class="flex flex-wrap justify-between items-baseline gap-2 mb-2">
-                        <h3 class="text-2xl font-semibold">Stats Perform</h3>
-                        <time class="text-sm text-zinc-600 dark:text-zinc-400 tabular-nums">March 2019 – February 2023</time>
-                    </div>
-                    <div class="text-blue-600 dark:text-blue-400 font-medium mb-3">Senior Product Manager | Product Manager</div>
-                    <p class="text-zinc-600 dark:text-zinc-400 text-pretty">
-                        Led development and go-to-market of multiple 'zero-to-one' products in sports data including AI-powered automated video (42,000+ videos annually, $2M revenue in 6 months), B2B APIs ($1M+ in 6 months), and B2B2C experiences for Media, Tech, and Sportsbook clients. Established ML Ops infrastructure and integrated machine learning models across multiple products.
-                    </p>
-                </article>
-
-                <article>
-                    <div class="flex flex-wrap justify-between items-baseline gap-2 mb-2">
-                        <h3 class="text-2xl font-semibold">Kin + Carta</h3>
-                        <time class="text-sm text-zinc-600 dark:text-zinc-400 tabular-nums">September 2017 – March 2019</time>
-                    </div>
-                    <div class="text-blue-600 dark:text-blue-400 font-medium mb-3">Product Consultant</div>
-                    <p class="text-zinc-600 dark:text-zinc-400 text-pretty">
-                        Managed development of responsive web B2B e-commerce application for Top 5 foodservice distribution client ($19B/year revenue). Led implementation of Elasticsearch-based search engine strategy and facilitated agile development with cross-functional teams.
-                    </p>
-                </article>
-
-                <article>
-                    <div class="flex flex-wrap justify-between items-baseline gap-2 mb-2">
-                        <h3 class="text-2xl font-semibold">Sears Holdings Corporation</h3>
-                        <time class="text-sm text-zinc-600 dark:text-zinc-400 tabular-nums">August 2014 – September 2017</time>
-                    </div>
-                    <div class="text-blue-600 dark:text-blue-400 font-medium mb-3">Product Manager | Associate PM | Business Analyst</div>
-                    <p class="text-zinc-600 dark:text-zinc-400 text-pretty">
-                        Progressed from Business Analyst to Product Manager, managing $200M Craftsman product portfolios. Developed product roadmaps, negotiated with vendors, licensed and patented technology, and created go-to-market strategies for power tools and hardware products.
-                    </p>
-                </article>
+            <div class="work-card">
+                <h3>Experimentation & Iteration</h3>
+                <p>Designing feedback loops to quantify trade-offs between margin and volume, risk and growth, enabling continuous strategy refinement backed by data.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="py-24">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-balance">Let's Connect</h2>
-            <p class="text-lg text-zinc-600 dark:text-zinc-400 mb-3 text-pretty">
-                Interested in working together or just want to chat about product management, sports tech, or AI/ML? Reach out via LinkedIn or email.
-            </p>
-            <p class="text-sm text-zinc-500 dark:text-zinc-500 italic mb-8">
-                (Fair warning: I'm not always great at responding quickly, but I do my best!)
-            </p>
-            <div class="flex gap-4 justify-center flex-wrap">
-                <a href="https://linkedin.com/in/bshums" target="_blank" class="inline-flex items-center px-6 py-3 bg-zinc-950 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-950 rounded-lg font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors">
-                    LinkedIn
-                </a>
-                <a href="mailto:bryan.shumway@me.com" class="inline-flex items-center px-6 py-3 bg-zinc-950 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-950 rounded-lg font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors">
-                    Email
-                </a>
+    <section id="portfolio">
+        <h2>Selected Work</h2>
+        
+        <div class="work-samples-grid">
+            <div class="work-sample">
+                <div class="portfolio-meta">Stats Perform • 2021-2023</div>
+                <h3>Automated Sports Video</h3>
+                <p>Led development of an AI-powered automated video solution producing 42,000+ videos annually. Generated $2M in revenue within 6 months of launch for clients across Media and Sports Betting verticals. Built the product from zero to scale, working with ML teams to create a system that automatically generates highlight reels and content for major sports properties.</p>
+                <a href="https://www.bryanshumway.com/automated-sports-video" class="portfolio-link" target="_blank">View case study →</a>
+            </div>
+
+            <div class="work-sample">
+                <div class="portfolio-meta">Stats Perform • 2021-2023</div>
+                <h3>Content Player Pro</h3>
+                <p>Created a new B2B2C web and mobile product for Sportsbook clients, decreasing time to integration by 60% and enabling upsell opportunities for new innovations. This platform became the foundation for delivering Stats Perform's data experiences to millions of end users through sportsbook applications.</p>
+                <a href="https://www.bryanshumway.com/content-player-pro" class="portfolio-link" target="_blank">View case study →</a>
+            </div>
+
+            <div class="work-sample">
+                <div class="portfolio-meta">Stats Perform • 2021-2023</div>
+                <h3>Automated Betting Insights</h3>
+                <p>Created a new service delivering 1M+ automatically generated insights annually, driving engagement and personalization opportunities across B2B Media, Tech, and Sportsbooks. Used machine learning and natural language generation to create contextual, timely insights that helped users make informed betting decisions.</p>
+                <a href="https://www.bryanshumway.com/automated-betting-insights" class="portfolio-link" target="_blank">View case study →</a>
+            </div>
+
+            <div class="work-sample">
+                <div class="portfolio-meta">Stats Perform • 2019-2021</div>
+                <h3>AI/ML Predictions API</h3>
+                <p>Led development of a B2B API service generating $1M+ in sales within 6 months of launch. Provided machine learning-driven sports predictions and probability distributions to sportsbook operators. Established ML Ops infrastructure and integrated machine learning models into multiple products.</p>
+                <a href="https://www.bryanshumway.com/ai-ml-in-sports" class="portfolio-link" target="_blank">View case study →</a>
+            </div>
+
+            <div class="work-sample">
+                <div class="portfolio-meta">Stats Perform • 2021-2023</div>
+                <h3>Same-Game-Multi Assistant</h3>
+                <p>Ideated and delivered an industry-first B2B2C product driving increased bet placement and higher margins for sportsbooks. Created an intelligent assistant that helped users build correlated parlays with real-time odds and probability calculations.</p>
+                <a href="https://www.bryanshumway.com/samegamemulti-assistant" class="portfolio-link" target="_blank">View case study →</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-zinc-200 dark:border-zinc-800 py-8">
-        <div class="max-w-5xl mx-auto px-6 text-center text-sm text-zinc-600 dark:text-zinc-400">
-            <p>&copy; 2026 Bryan Shumway</p>
+    <section id="experience" class="alt">
+        <h2>Experience</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>DraftKings</h3>
+                    <div class="timeline-date">April 2023 — Present</div>
+                </div>
+                <div class="timeline-role">Senior Product Manager — Trading Intelligence</div>
+                <p>Leading product development for trading intelligence systems that optimize pricing, risk, and margin decisions across the online sportsbook platform. Building data-driven products that help the sportsbook make better decisions at scale.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Stats Perform</h3>
+                    <div class="timeline-date">March 2019 — February 2023</div>
+                </div>
+                <div class="timeline-role">Senior Product Manager | Product Manager</div>
+                <p>Led development and go-to-market of multiple 'zero-to-one' products in sports data including AI-powered automated video (42,000+ videos annually, $2M revenue in 6 months), B2B APIs ($1M+ in 6 months), and B2B2C experiences for Media, Tech, and Sportsbook clients. Established ML Ops infrastructure and integrated machine learning models across multiple products.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Kin + Carta</h3>
+                    <div class="timeline-date">September 2017 — March 2019</div>
+                </div>
+                <div class="timeline-role">Product Consultant</div>
+                <p>Managed development of responsive web B2B e-commerce application for Top 5 foodservice distribution client ($19B/year revenue). Led implementation of Elasticsearch-based search engine strategy and facilitated agile development with cross-functional teams.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Sears Holdings Corporation</h3>
+                    <div class="timeline-date">August 2014 — September 2017</div>
+                </div>
+                <div class="timeline-role">Product Manager | Associate PM | Business Analyst</div>
+                <p>Progressed from Business Analyst to Product Manager, managing $200M Craftsman product portfolios. Developed product roadmaps, negotiated with vendors, licensed and patented technology, and created go-to-market strategies for power tools and hardware products.</p>
+            </div>
         </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Let's Connect</h2>
+        <p style="color: var(--gray); max-width: 600px; margin: 0 auto 1rem;">Interested in working together or just want to chat about product management, sports tech, or AI/ML? Reach out via LinkedIn or email.</p>
+        <p style="color: var(--gray); font-style: italic; margin-bottom: 2rem;">(Fair warning: I'm not always great at responding quickly, but I do my best!)</p>
+        <div class="contact-links">
+            <a href="https://linkedin.com/in/bshums" class="contact-btn" target="_blank">LinkedIn</a>
+            <a href="mailto:bryan.shumway@me.com" class="contact-btn">Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Bryan Shumway. Built with HTML & CSS.</p>
     </footer>
 
     <script>
         // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('nav ul');
 
         menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+                navMenu.classList.remove('active');
             });
         });
 
-        // Smooth scrolling
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
